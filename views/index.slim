@@ -1,0 +1,53 @@
+doctype html
+html
+  head
+    title Lab survey system
+
+  body
+    h1 <marquee behavior=scroll direction="left" scrollamount="28">Twitter <=> Lab connecting service あなたと所属研究室 接続する サービス</marquee>
+    #description 
+      | <a href='https://www.google.co.jp/search?q=%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%80%80%E8%87%AA%E5%B7%B1%E8%B2%AC%E4%BB%BB'>インターネット　自己責任</a>
+  hr
+  #main
+    - if @authed
+      - if @lab
+        p あなたは#{@lab}研
+        p 研究室を更新する
+      - else 
+        p 研究室を選択する
+      form action='/submit' method='post'
+        select name="lab_name"
+          option value="none" 選択してください
+          option value="ahara" 阿原研
+          option value="arakawa" 荒川研
+          option value="igarasi" 五十嵐研
+          option value="kikuchi" 菊池研
+          option value="kobayasi" 小林研
+          option value="komatsu" 小松研
+          option value="saitou" 斎藤研
+          option value="sagayama" 嵯峨山研
+          option value="suzuki" 鈴木研
+          option value="nakamura" 中村研
+          option value="fukuchi" 福地研
+          option value="miyasita" 宮下研
+          option value="watanabe" 渡邊研
+          option value="bye" 削除したい
+        input type='submit' value='更新'
+      - if @labs
+        - @labs.each do |lab|
+          div.labcontainer
+            h3 #{lab.name_ja}研
+            div.members
+              ul
+                - lab.users.each do |user|
+                  li
+                    a href="http://twitter.com/#{user.screen_name}" @#{user.name}
+
+
+    - else
+      p authしてください
+      a href='/auth/twitter' authする(twitterへ)
+    hr 
+    #footer
+      p 何かあればこちらへ
+      a href='http://twitter.com/tkgdisco' @tkgdisco(作った人)

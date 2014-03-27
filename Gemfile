@@ -10,9 +10,12 @@ gem 'activerecord'
 gem 'omniauth-twitter'
 gem 'unicorn'
 
+gem 'slim'
+
 group :development, :test do
   gem 'rake'
   gem 'sqlite3'
+  gem 'foreman'
 end
 
 group :production do

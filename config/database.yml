@@ -1,3 +1,6 @@
 development:
-  adapter: sqlite3
-  database: db/test.sqlite3
+  adapter: postgresql
+  database: myapp
+production:
+  adapter: postgresql
+  database: myapp
