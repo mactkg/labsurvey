@@ -1,6 +1,9 @@
+require 'active_record'
 worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
 timeout 15
 preload_app true
+
+ActiveRecord::Base.configurations = YAML::load_file('config/database.yml')
 
 before_fork do |server, worker|
   Signal.trap 'TERM' do
@@ -18,5 +21,5 @@ after_fork do |server, worker|
   end
 
   defined?(ActiveRecord::Base) and
-    ActiveRecord::Base.establish_connection
+    ActiveRecord::Base.establish_connection(ENV['RACK_ENV'] || 'development')
 end

@@ -14,7 +14,7 @@ gem 'slim'
 
 group :development, :test do
   gem 'rake'
-  gem 'sqlite3'
+  gem 'pg'
   gem 'foreman'
 end
 

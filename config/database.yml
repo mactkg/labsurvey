@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  database: labsurvey_dev
+  host: localhost
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: d66j3s06njbskq
+  username: timavuvqwcbjxd
+  password: mvTdM55L4Kj5ZGVmp_txmQvJAR
+  host: ec2-23-23-177-33.compute-1.amazonaws.com
+  port: 5432
