@@ -4,8 +4,8 @@ require 'active_record'
 require 'pg'
 require 'slim'
 
-CONSUMER_KEY = 'vAGbw6X00d9Cep8DfubEJA'
-CONSUMER_SECRET = 'i3Nn5nwaU5PiJoXj8x6Ffj1HHmGnBDdcKijM2NRdmQA'
+CONSUMER_KEY = ''
+CONSUMER_SECRET = ''
 
 #ActiveRecord::Base.configurations = YAML::load_file('config/database.yml')
 #ActiveRecord::Base.establish_connection(ENV['RACK_ENV'] || 'development')
